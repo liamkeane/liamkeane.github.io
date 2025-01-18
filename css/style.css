@@ -993,16 +993,6 @@ blockquote {
     -moz-backface-visibility: hidden;
 }
 
-.headshot {
-    width: 150px; /* Adjust size as needed */
-    height: auto;
-    border-radius: 50%; /* Makes it circular */
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-
 #gallery a:before {
     font-size: 2.2em;
     font-style: normal;
