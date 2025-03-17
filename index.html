@@ -233,7 +233,7 @@
                 <div class="col-md-4">
                     <div class="section-heading">
                         <h2 class="section-title" style="font-size:4vw;">Carltune</h2>
-                        <p>Our goal for this inquiry is to better connect students with Carleton's live music scene (events, bands, socials) through technology. We are exploring the idea of developing an app making live music opportunities on campus accessible, whether that be playing music or finding music to listen to. We narrowed down our UI's requirements through performing fictional inquiry interviews in which we prompted the stakeholders with our problem and probed for their ideas. Using those transcripts, we axial coded our stakeholders' points and synthesized them in an affinity diagram. If you have a Carleton email, you can view the result of our analysis <a href="https://docs.google.com/document/d/1I9bzqyB_8p-39gelgVpBqsJtrvre8YBsYTslk3Z_MkE/edit?usp=sharing">here</a>:</p>
+                        <p>Our goal is to better connect students with Carleton's live music scene (events, bands, socials) through technology. We are exploring the idea of developing an app making live music opportunities on campus accessible, whether that be playing music or finding music to listen to. We narrowed down our UI's requirements through performing fictional inquiry interviews in which we prompted the stakeholders with our problem and probed for their ideas. Using those transcripts, we axial coded our stakeholders' points and synthesized them in an affinity diagram. If you have a Carleton email, you can view the result of our analysis <a href="https://docs.google.com/document/d/1I9bzqyB_8p-39gelgVpBqsJtrvre8YBsYTslk3Z_MkE/edit?usp=sharing">here</a>. Our analysis yielded the following three requirements:</p>
                         <ol>
                             <li>
                                 <strong>Events board</strong>  
@@ -248,16 +248,39 @@
                                 <p>Since we are designing a social media-esque platform, it is important to note that different users may have different levels of comfort with what information they share online. For this reason, we need to consider how to incorporate privacy in our design and allow users to show/hide as much or as little personal information they would like. This is not only important to users, but also events, as some events are open to the public while others are only open to those affiliated with Carleton.</p>
                             </li>
                         </ol>
-                        <p>Our current prototype addresses the first two of these requirements with the implementation of an Events and Connect page where users can view upcoming events and/or network with other musicians. We include the option for anonyminity within media and musician connection (i.e. a group seeking a bass player does not immediately need to present their identity). To view the most recent prototype <a href= "https://www.figma.com/proto/AVARpn5YRXEZ2O8KgopKHt/Carltune-v2?node-id=0-1&t=LoM8hjuhNJe5Vfc1-1">click here</a>. To view the current demo where interaction flows allow you to navigate between pages, see the video below.</p>
+                        <p>
+                            After addressing these requirements, our next iteration followed after a round of UX evaluation. Specifically, I conducted a sticky notes session where I asked users to complete specific tasks while vocalizing their thought process and writing their comments on post-its (or in my case, index cards). These are the three tasks I asked users to complete:
+                        </p>
+                        <ol>
+                            <li>
+                                Scenario: You are browsing through the events page and are interested in looking at events hosted by the Cave. Look for upcoming events at the Cave. 
+                            </li>
+                            <li>
+                                Scenario: You are interested in creating a band and need a bass player. How would you accomplish this? 
+                            </li>
+                            <li>
+                                Scenario: You are interested in seeing what a live event might be like. How can you navigate to find pictures or videos from events at the Weitz?
+                            </li>
+                        </ol>
+                        <p>
+                            Overall, the three participating stakeholders felt the UI was clean and intuitive, especially given the problem we're aiming to solve has a limited scope. The average completion of each task was ~10 seconds, and the averge satisfaction score was 8.6 out of 10. 
+                        </p>
+                        <p>
+                            Two users noted condensing the Events and Connect page to be less image heavy, saying “it also seems like you might have to do a lot of scrolling if there's a lot of events.” Additionally, one user had difficulty recognizing the currently active page in the navigation bar and suggested that, "...you could make it like black with white text, like you did for the filters.” Based on their suggestions, I added an image toggle which would remove band or artist images in favor of a compressed text-only view. Assuming a situation where there are many upcoming shows, this provides the user with the ability to spend less time scrolling tediously. I also ensured that the current page icon is more obvious by adding a background. Hopefully, this reduces any future issues users have with navigation. For future steps, users mentionned being able to sign in using their Carleton credentials, which would have the added privacy benefit of preventing non-Carleton students from being able to access our app (inteded for use by Carleton students). This feature would likely require coordination with and permission from Carleton's ITS department.
+                        </p>
+                        <p>
+                            To view the most recent prototype <a href= "https://www.figma.com/proto/AVARpn5YRXEZ2O8KgopKHt/Carltune-v2?node-id=0-1&t=LoM8hjuhNJe5Vfc1-1">click here</a>. To view the an interactable demo, see the video below.</p>
                         <br>
-                        <p>Team members: Liam, Kai, Vanessa</p>
+                        <p>
+                            Team members: Liam, Kai, Vanessa
+                        </p>
                     </div>
                 </div>
                 
-                <div class="row">
-                    <div class="col-md-12 text-center">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 text-center">
                         <p class="sr-only">A demonstration of the Carltune UI: showcasing event listings, musician connections, and media uploads.</p>
-                        <video class="img-fluid" controls>
+                        <video class="img-fluid w-100" controls>
                             <source src="images/demo.mp4" type="video/mp4">
                             We ran into a problem...
                         </video>
