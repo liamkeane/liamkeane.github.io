@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Liam Keane — Data Engineer</title>
+<meta name="description" content="Liam Keane, data engineer. Pipelines, Snowflake, dbt, and Python.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAFAF9;
+    --surface: #FFFFFF;
+    --ink: #1B1D1F;
+    --ink-soft: #565B61;
+    --ink-faint: #8A8F94;
+    --border: #E3E3E0;
+    --accent: #1F5D4E;
+    --accent-soft: #E6EFEC;
+    --mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; }
+
+  .wrap {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 4.5rem 1.5rem 5rem;
+  }
+
+  /* header */
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin: 0 0 0.9rem;
+  }
+
+  h1 {
+    font-size: 2.1rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .tagline {
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    margin: 0 0 1.75rem;
+    max-width: 46ch;
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 3.25rem;
+  }
+
+  .links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: var(--mono);
+    font-size: 13px;
+    text-decoration: none;
+    padding: 0.5rem 0.85rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--surface);
+    color: var(--ink);
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+
+  .links a:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .links svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+  /* section rhythm */
+  section { margin-bottom: 3.25rem; }
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .section-head .n {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-faint);
+  }
+
+  h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  p.body {
+    color: var(--ink-soft);
+    font-size: 0.97rem;
+    margin: 0;
+    max-width: 56ch;
+  }
+
+  /* experience */
+  .job {
+    display: grid;
+    grid-template-columns: 148px 1fr;
+    gap: 1.25rem;
+    padding: 1.1rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .job:last-child { border-bottom: 1px solid var(--border); }
+
+  .job .when {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-faint);
+    padding-top: 0.15rem;
+  }
+
+  .job .role {
+    font-weight: 600;
+    font-size: 0.97rem;
+    margin: 0 0 0.15rem;
+  }
+
+  .job .org {
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+    margin: 0 0 0.6rem;
+  }
+
+  .job ul {
+    margin: 0;
+    padding-left: 1.1rem;
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+  }
+
+  .job li { margin-bottom: 0.3rem; }
+
+  @media (max-width: 560px) {
+    .job { grid-template-columns: 1fr; gap: 0.3rem; }
+  }
+
+  /* projects */
+  .project {
+    padding: 1.1rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .project:last-child { border-bottom: 1px solid var(--border); }
+
+  .project-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .project-head a {
+    font-weight: 600;
+    font-size: 0.97rem;
+    text-decoration: none;
+  }
+
+  .project-head a:hover { color: var(--accent); }
+
+  .project-head svg { width: 13px; height: 13px; color: var(--ink-faint); flex-shrink: 0; }
+
+  .stack {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+
+  .project p {
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+    margin: 0;
+    max-width: 58ch;
+  }
+
+  /* skills */
+  .skill-row {
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.55rem 0;
+    border-top: 1px solid var(--border);
+    font-size: 0.9rem;
+  }
+
+  .skill-row:last-child { border-bottom: 1px solid var(--border); }
+
+  .skill-row .label {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--ink-faint);
+    width: 90px;
+    flex-shrink: 0;
+    padding-top: 0.15rem;
+  }
+
+  .skill-row .val { color: var(--ink-soft); }
+
+  /* footer */
+  footer {
+    border-top: 1px solid var(--border);
+    padding-top: 1.5rem;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-faint);
+    display: flex;
+    justify-content: space-between;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="eyebrow">// data engineer</p>
+  <h1>Stephen Liam Keane</h1>
+  <p class="tagline">I build and maintain data pipelines — currently working in Snowflake, Data Vault 2.0, and Python, with a focus on reliable ingestion and transformation.</p>
+
+  <div class="links">
+    <a href="https://github.com/liamkeane" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.5 0 12.3c0 5.44 3.44 10.05 8.21 11.68.6.11.82-.27.82-.6 0-.29-.01-1.06-.02-2.08-3.34.75-4.04-1.64-4.04-1.64-.55-1.44-1.34-1.82-1.34-1.82-1.09-.77.08-.76.08-.76 1.21.09 1.84 1.28 1.84 1.28 1.07 1.87 2.81 1.33 3.5 1.02.11-.79.42-1.33.76-1.64-2.66-.31-5.47-1.37-5.47-6.08 0-1.34.46-2.44 1.22-3.3-.12-.31-.53-1.56.12-3.24 0 0 1-.33 3.3 1.26a11.2 11.2 0 0 1 6 0c2.29-1.59 3.29-1.26 3.29-1.26.65 1.68.24 2.93.12 3.24.76.86 1.22 1.96 1.22 3.3 0 4.72-2.81 5.76-5.49 6.07.43.38.81 1.14.81 2.3 0 1.66-.02 2.99-.02 3.4 0 .33.22.72.83.6C20.57 22.34 24 17.73 24 12.3 24 5.5 18.63 0 12 0Z"/></svg>
+      github.com/liamkeane
+    </a>
+    <a href="https://linkedin.com/in/liamkeane" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.8 0 0 .78 0 1.75v20.5C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.75V1.75C24 .78 23.2 0 22.22 0Z"/></svg>
+      linkedin.com/in/liamkeane
+    </a>
+    <a href="mailto:s.liam.keane@gmail.com">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h18v14H3z"/><path d="m3 6 9 7 9-7"/></svg>
+      s.liam.keane@gmail.com
+    </a>
+    <a href="/resume.pdf" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6z"/><path d="M15 2v5h5"/></svg>
+      Resume
+    </a>
+  </div>
+
+  <section>
+    <div class="section-head"><span class="n">01</span><h2>Experience</h2></div>
+
+    <div class="job">
+      <div class="when">Oct 2025 — present</div>
+      <div>
+        <p class="role">Data Analyst</p>
+        <p class="org">University of Pittsburgh Medical Center · Remote</p>
+        <ul>
+          <li>Maintain pipelines that ingest and transform member data across a Bronze / Silver / Gold Data Vault 2.0 architecture</li>
+          <li>Develop and validate source-to-target mappings and transformation logic</li>
+          <li>Write QA report scripts to catch data quality issues before they reach business users</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when">Jun 2025 — Oct 2025</div>
+      <div>
+        <p class="role">Consultant Data Engineer</p>
+        <p class="org">Genesis10 · Remote</p>
+        <ul>
+          <li>Selected for a paid data engineering training program with a sub-5% acceptance rate</li>
+          <li>Completed intensive training in SQL, Python, ETL development, and cloud-based data engineering workflows</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when">Jun 2024 — Jun 2025</div>
+      <div>
+        <p class="role">Sales Enablement BI Intern</p>
+        <p class="org">Johnson Controls · Milwaukee, WI</p>
+        <ul>
+          <li>Built an AI chatbot to answer performance-contracting questions and draft proposal content</li>
+          <li>Streamlined proposal scheduling with a Power Platform and Python workflow</li>
+          <li>Built Power BI and Python dashboards for executive decision-making</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when">Sep 2022 — Jun 2024</div>
+      <div>
+        <p class="role">Computer Science TA</p>
+        <p class="org">Carleton College · Northfield, MN</p>
+        <ul>
+          <li>Tutored 15+ students weekly on programming concepts and debugging</li>
+          <li>Gave feedback on 60+ assignments weekly to improve comprehension</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="n">02</span><h2>Projects</h2></div>
+
+    <div class="project">
+      <div class="project-head">
+        <a href="#" target="_blank" rel="noopener">Data migration initiative</a>
+        <span class="stack">SQL · Snowflake · Informatica · ADF</span>
+      </div>
+      <p>Ongoing migration project — add a line here on the source/target systems...</p>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <a href="https://github.com/liamkeane" target="_blank" rel="noopener">Congressional Analytics Pipeline <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:-1px"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+        <span class="stack">Snowflake · dbt · Airflow · Python</span>
+      </div>
+      <p>Designed and built an end-to-end ELT data pipeline that ingests U.S. congressional legislative data from the Congress.gov API, lands it in Azure Blob Storage, and loads it into Snowflake, orchestrated with Apache Airflow. Modeled a dimensional star schema in dbt — including Type 2 slowly changing dimensions to track historical changes in bill status and member party/chamber affiliation — with incremental models, snapshots, and automated data quality tests to ensure pipeline reliability. Built a Streamlit dashboard on top of the resulting marts to surface legislative trends such as bipartisan cosponsorship rates and committee bottlenecks, deployed publicly for demonstration.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="n">03</span><h2>Skills</h2></div>
+
+    <div class="skill-row">
+      <span class="label">languages</span>
+      <span class="val">SQL, Python, C/C++, Java, R</span>
+    </div>
+    <div class="skill-row">
+      <span class="label">tools</span>
+      <span class="val">Snowflake, Power BI, Azure Data Factory, Informatica, Docker, Git, Linux</span>
+    </div>
+    <div class="skill-row">
+      <span class="label">libraries</span>
+      <span class="val">PySpark, dbt, pandas, NumPy, Matplotlib, Streamlit</span>
+    </div>
+  </section>
+
+  <footer>
+    <span>Carleton College, BA Computer Science — 2025</span>
+    <span>Milwaukee, WI</span>
+  </footer>
+
+</div>
+</body>
+</html>
