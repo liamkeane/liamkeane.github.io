@@ -42,6 +42,25 @@
   }
 
   /* header */
+  .header-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .pfp {
+    width: 112px;
+    height: 112px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  .header-text { flex: 1; min-width: 0; }
+
   .eyebrow {
     font-family: var(--mono);
     font-size: 12.5px;
@@ -155,6 +174,44 @@
     margin: 0 0 0.6rem;
   }
 
+  .job .org-name {
+    font-weight: 600;
+    font-size: 0.97rem;
+    margin: 0 0 0.9rem;
+  }
+
+  .subroles {
+    border-left: 2px solid var(--border);
+    margin-left: 2px;
+    padding-left: 1.1rem;
+  }
+
+  .subrole { padding-bottom: 1.1rem; }
+  .subrole:last-child { padding-bottom: 0; }
+
+  .subrole .role {
+    font-weight: 600;
+    font-size: 0.92rem;
+    margin: 0 0 0.1rem;
+  }
+
+  .subrole .when {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    padding-top: 0;
+    margin: 0 0 0.5rem;
+  }
+
+  .subrole ul {
+    margin: 0;
+    padding-left: 1.1rem;
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+  }
+
+  .subrole li { margin-bottom: 0.3rem; }
+
   .job ul {
     margin: 0;
     padding-left: 1.1rem;
@@ -204,6 +261,22 @@
     white-space: nowrap;
   }
 
+  .badges {
+    display: flex;
+    gap: 0.4rem;
+    flex-shrink: 0;
+  }
+
+  .status {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: #92400E;
+    background: #FEF3C7;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+
   .project p {
     color: var(--ink-soft);
     font-size: 0.92rem;
@@ -248,9 +321,14 @@
 <body>
 <div class="wrap">
 
-  <p class="eyebrow">// data engineer</p>
-  <h1>Liam Keane</h1>
-  <p class="tagline">I build and maintain data pipelines. Currently, I work professionally with SQL in Snowflake, Data Vault 2.0, with a focus on reliable ingestion and transformation.</p>
+  <div class="header-row">
+    <img class="pfp" src="pfp.jpeg" alt="Liam Keane">
+    <div class="header-text">
+      <p class="eyebrow">// data professional</p>
+      <h1>Liam Keane</h1>
+      <p class="tagline">Data Analyst at UPMC, currently modernizing legacy systems through cloud migration. Always happy to connect.</p>
+    </div>
+  </div>
 
   <div class="links">
     <a href="https://github.com/liamkeane" target="_blank" rel="noopener">
@@ -275,27 +353,29 @@
     <div class="section-head"><span class="n">01</span><h2>Experience</h2></div>
 
     <div class="job">
-      <div class="when">Oct 2025 — present</div>
+      <div class="when">Jun 2025 — present</div>
       <div>
-        <p class="role">Data Analyst</p>
-        <p class="org">University of Pittsburgh Medical Center · Remote</p>
-        <ul>
-          <li>Maintain pipelines that ingest and transform member data across a Bronze / Silver / Gold Data Vault 2.0 architecture</li>
-          <li>Develop and validate source-to-target mappings and transformation logic</li>
-          <li>Write QA report scripts to catch data quality issues before they reach business users</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="job">
-      <div class="when">Jun 2025 — Oct 2025</div>
-      <div>
-        <p class="role">Consultant Data Engineer</p>
-        <p class="org">Genesis10 · Remote</p>
-        <ul>
-          <li>Selected for a paid data engineering training program with a sub-5% acceptance rate</li>
-          <li>Completed intensive training in SQL, Python, ETL development, and cloud-based data engineering workflows</li>
-        </ul>
+        <p class="org-name">Genesis10</p>
+        <div class="subroles">
+          <div class="subrole">
+            <p class="role">Data Analyst (Client: UPMC)</p>
+            <p class="when">Oct 2025 — present</p>
+            <ul>
+              <li>Reverse-engineered legacy Informatica ETL workflows into source-to-target mapping documentation and equivalent SQL logic, supporting migration of enterprise insurance member data from SQL Server/Oracle to Snowflake</li>
+              <li>Wrote and maintained QA test suites validating data integrity, transformation logic, and business rule accuracy across bronze/silver/gold medallion layers</li>
+              <li>Supported implementation of a Data Vault 2.0 architecture and downstream star schema dimensional model, feeding enterprise reporting and ad hoc analytics</li>
+              <li>Collaborated with data engineers to translate business and ETL requirements into SQL transformations underlying Azure Data Factory pipeline development</li>
+            </ul>
+          </div>
+          <div class="subrole">
+            <p class="role">Data Engineering Fellow</p>
+            <p class="when">Jun 2025 — Oct 2025</p>
+            <ul>
+              <li>Selected for a paid data engineering training program with a sub-5% acceptance rate</li>
+              <li>Completed intensive training in SQL, Python, ETL development, and cloud-based data engineering workflows</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -323,6 +403,18 @@
         </ul>
       </div>
     </div>
+
+    <div class="job">
+      <div class="when">Jan 2022 — Jun 2025</div>
+      <div>
+        <p class="role">IT Systems Engineer</p>
+        <p class="org">KRLX 88.1 FM · Northfield, MN</p>
+        <ul>
+          <li>Served as on-call technical support for 200+ college DJs, ensuring 24/7 broadcast continuity through timely resolution of hardware and software issues</li>
+          <li>Maintained and troubleshot KRLX's multi-site digital infrastructure, including mc.krlx.org (PHP/Laravel), data.krlx.org (MySQL database), and content.krlx.org (WordPress), supporting station operations and scheduling</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
   <section>
@@ -331,7 +423,10 @@
     <div class="project">
       <div class="project-head">
         <a href="#" target="_blank" rel="noopener">Data migration initiative</a>
-        <span class="stack">SQL · Snowflake · Informatica · ADF</span>
+        <span class="badges">
+          <span class="status">Ongoing</span>
+          <span class="stack">SQL · Snowflake · Informatica · ADF</span>
+        </span>
       </div>
       <p>Ongoing migration project — add a line here on the source/target systems...</p>
     </div>
@@ -339,9 +434,28 @@
     <div class="project">
       <div class="project-head">
         <a href="https://github.com/liamkeane" target="_blank" rel="noopener">Congressional Analytics Pipeline <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:-1px"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
-        <span class="stack">Azure · dbt · Airflow · Python</span>
+        <span class="badges">
+          <span class="status">Ongoing</span>
+          <span class="stack">Azure · dbt · Airflow · Python</span>
+        </span>
       </div>
       <p>Designed and built an end-to-end ELT data pipeline that ingests U.S. congressional legislative data from the Congress.gov API. Built a Streamlit dashboard on top of the resulting marts to surface legislative trends such as bipartisan cosponsorship rates and committee bottlenecks, deployed publicly for demonstration.</p>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <a href="ssh-client-writeup.pdf" target="_blank" rel="noopener">Custom SSH Client <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:-1px"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+        <span class="stack">Networking · Cryptography</span>
+      </div>
+      <p>Built an SSH client from scratch with a classmate, implementing the protocol version exchange, key exchange negotiation, Diffie-Hellman key derivation and server authentication, and encrypted, MAC-verified channel communication (AES-128-CTR / HMAC-SHA1) to authenticate and execute remote commands on a live OpenSSH server.</p>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <a href="#" target="_blank" rel="noopener">Peer-to-Peer File Sharing Client</a>
+        <span class="stack">Rust</span>
+      </div>
+      <p>Engineered a decentralized peer-to-peer file-sharing client with a dual listener/requester architecture, using asynchronous I/O to handle concurrent multi-peer file requests without blocking. Designed a local catalog system that hashes and validates file metadata to authorize transfers between trusted peers, with cross-platform state persistence and a suite of automated unit tests run via Cargo.</p>
     </div>
   </section>
 
@@ -359,6 +473,23 @@
     <div class="skill-row">
       <span class="label">libraries</span>
       <span class="val">PySpark, dbt, pandas, NumPy, Matplotlib, Streamlit</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="n">04</span><h2>Certifications</h2></div>
+
+    <div class="skill-row">
+      <span class="label">agile</span>
+      <span class="val">Certified SAFe&reg; 6 Agilist, Certified SAFe&reg; 6 Practitioner</span>
+    </div>
+    <div class="skill-row">
+      <span class="label">cloud/data</span>
+      <span class="val">SnowPro Core Certification, SnowPro Associate: Platform Certification, Microsoft Certified: Azure Data Fundamentals</span>
+    </div>
+    <div class="skill-row">
+      <span class="label">other</span>
+      <span class="val">Mental Health First Aid</span>
     </div>
   </section>
 
