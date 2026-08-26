@@ -70,6 +70,16 @@
     margin: 0 0 0.9rem;
   }
 
+  .cursor {
+    display: inline-block;
+    width: 7px;
+    height: 13px;
+    background: var(--accent);
+    margin-left: 5px;
+    animation: blink cubic-bezier(0.23, 1, 0.320, 1) step-end infinite;
+  }
+
+
   h1 {
     font-size: 2.1rem;
     font-weight: 600;
@@ -324,7 +334,7 @@
   <div class="header-row">
     <img class="pfp" src="pfp.jpeg" alt="Liam Keane">
     <div class="header-text">
-      <p class="eyebrow">// Data Engineer</p>
+      <p class="eyebrow">$ whoami<span class="cursor"></span></p>
       <h1>Liam Keane</h1>
       <p class="tagline">Data Analyst at UPMC, currently modernizing legacy systems through cloud migration. Based in the Midwest.</p>
     </div>
@@ -497,7 +507,7 @@
 
   <section>
     <div class="section-head"><span class="n">06</span><h2>Interests</h2></div>
-    <p class="body">Literature, alt-rock, tinkering, Nordic skiing, video games, crosswords</p>
+    <p class="body">Literature, alt-rock, tinkering, nordic skiing, video games, crosswords</p>
   </section>
 
   <footer>
