@@ -37,7 +37,7 @@
   a { color: inherit; }
 
   .wrap {
-    max-width: 680px;
+    max-width: 760px;
     margin: 0 auto;
     padding: 4.5rem 1.5rem 5rem;
   }
@@ -322,6 +322,76 @@
 
   .skill-row .val { color: var(--ink-soft); }
 
+  /* contact */
+  .contact-form {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
+    padding: 1.5rem;
+    margin-top: 1.25rem;
+  }
+
+  .form-group { margin-bottom: 1rem; }
+
+  .form-group label {
+    display: block;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--ink-faint);
+    margin-bottom: 0.35rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.6rem 0.7rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--bg);
+    color: var(--ink);
+    font: inherit;
+    font-size: 0.95rem;
+    transition: border-color 0.15s ease;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: var(--surface);
+  }
+
+  .form-group textarea { min-height: 120px; resize: vertical; }
+
+  .contact-form button {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: none;
+    border-radius: 6px;
+    background: var(--accent);
+    color: #fff;
+    font-family: var(--mono);
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+
+  .contact-form button:hover { background: #17483C; }
+  .contact-form button:disabled { opacity: 0.6; cursor: default; }
+
+  .form-message {
+    display: none;
+    margin-top: 1rem;
+    padding: 0.6rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .form-message.success { display: block; background: var(--accent-soft); color: var(--accent); }
+  .form-message.error { display: block; background: #FDECEC; color: #8A1C1C; }
+
   /* footer */
   footer {
     border-top: 1px solid var(--border);
@@ -516,11 +586,63 @@
     <p class="body">Literature, alt-rock, tinkering, coffee, nordic skiing, video games, crosswords, learning to sew</p>
   </section>
 
+  <section id="contact">
+    <div class="section-head"><span class="n">07</span><h2>Get in Touch</h2></div>
+    <p class="body">Questions, opportunities, or just want to say hi? Send me a note and I'll get back to you.</p>
+
+    <form id="contactForm" class="contact-form" action="https://formspree.io/f/xyeebpdn" method="POST">
+      <div class="form-group">
+        <label for="name">name</label>
+        <input type="text" id="name" name="name" autocomplete="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">email</label>
+        <input type="email" id="email" name="email" autocomplete="email" required>
+      </div>
+      <div class="form-group">
+        <label for="message">message</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+      <input type="hidden" name="_subject" value="New message from liamkeane.github.io">
+      <button type="submit">Send message</button>
+      <div id="formMessage" class="form-message" role="status"></div>
+    </form>
+  </section>
+
   <footer>
-    <span>Last updated Oct 2026</span>
+    <span>Last updated Nov 2026</span>
   </footer>
 
 
 </div>
+
+<script>
+  // Submit via fetch so visitors stay on the page; without JS the form still posts to Formspree directly.
+  document.getElementById('contactForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const button = this.querySelector('button');
+    const msg = document.getElementById('formMessage');
+    button.textContent = 'Sending…';
+    button.disabled = true;
+    msg.className = 'form-message';
+
+    try {
+      const res = await fetch(this.action, {
+        method: 'POST',
+        body: new FormData(this),
+        headers: { Accept: 'application/json' }
+      });
+      if (!res.ok) throw new Error();
+      msg.textContent = '✓ Message sent — thanks!';
+      msg.className = 'form-message success';
+      this.reset();
+    } catch {
+      msg.textContent = 'Something went wrong. Try emailing me directly instead.';
+      msg.className = 'form-message error';
+    }
+    button.textContent = 'Send message';
+    button.disabled = false;
+  });
+</script>
 </body>
 </html>
