@@ -257,7 +257,8 @@
     margin-bottom: 0.35rem;
   }
 
-  .project-head a {
+  .project-head a,
+  .project-head .title {
     font-weight: 600;
     font-size: 0.97rem;
     text-decoration: none;
@@ -523,7 +524,7 @@
         <a href="https://github.com/liamkeane/congressional-analysis-pipeline" target="_blank" rel="noopener">Congressional Analytics Pipeline <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:-1px"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
         <span class="badges">
           <span class="status">Ongoing</span>
-          <span class="stack">Azure · dbt · Airflow · Python</span>
+          <span class="stack">AWS S3 · dbt · Airflow · Python</span>
         </span>
       </div>
       <p>Designed and built an end-to-end ELT data pipeline that ingests U.S. congressional legislative data from the Congress.gov API. Built a Streamlit dashboard on top of the resulting marts to surface legislative trends such as bipartisan cosponsorship rates and committee bottlenecks, deployed publicly for demonstration.</p>
@@ -544,6 +545,17 @@
       </div>
       <p>Built an SSH client from scratch, implementing the protocol version exchange, key exchange negotiation, Diffie-Hellman key derivation and server authentication, and encrypted, MAC-verified channel communication (AES-128-CTR / HMAC-SHA1) to authenticate and execute remote commands on a live OpenSSH server.</p>
     </div>
+
+    <div class="project">
+      <div class="project-head">
+        <span class="title">Vintage Sewing Machine Restoration</span>
+        <span class="badges">
+          <span class="status">Ongoing</span>
+          <span class="stack">Just for fun</span>
+        </span>
+      </div>
+      <p>Cleaning up and restoring a few old machines: a White 305 Deluxe, a Singer 15, and an antique Singer treadle built into its original desk.</p>
+    </div>
     
   </section>
 
@@ -556,11 +568,11 @@
     </div>
     <div class="skill-row">
       <span class="label">cloud & data platforms:</span>
-      <span class="val">Azure, Snowflake, Informatica</span>
+      <span class="val">AWS (S3), Azure, Snowflake, Informatica</span>
     </div>
     <div class="skill-row">
       <span class="label">dev tools & libraries</span>
-      <span class="val">Microsoft Copilot, Linux, Git, Docker, NumPy, pandas, Matplotlib</span>
+      <span class="val">Claude Code, Microsoft Copilot, Linux, Git, Docker, NumPy, pandas, Matplotlib</span>
     </div>
   </section>
 
