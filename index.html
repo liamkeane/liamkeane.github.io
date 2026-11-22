@@ -139,15 +139,6 @@
     margin-bottom: 1.25rem;
   }
 
-  .cmd {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--ink-faint);
-    margin: 0 0 0.4rem;
-  }
-
-  .cmd span { color: var(--accent); }
-
   .section-head .n {
     font-family: var(--mono);
     font-size: 12px;
@@ -296,17 +287,11 @@
   .status {
     font-family: var(--mono);
     font-size: 11.5px;
-    color: var(--accent);
-    background: var(--accent-soft);
+    color: #92400E;
+    background: #FEF3C7;
     padding: 0.15rem 0.5rem;
     border-radius: 4px;
     white-space: nowrap;
-  }
-
-  .status::before {
-    content: '●';
-    margin-right: 0.35rem;
-    animation: blink 2s step-end infinite;
   }
 
   .project p {
@@ -401,9 +386,8 @@
     margin-top: 1rem;
     padding: 0.6rem 0.8rem;
     border-radius: 6px;
-    font-family: var(--mono);
-    font-size: 12.5px;
-    text-align: left;
+    font-size: 0.9rem;
+    text-align: center;
   }
 
   .form-message.success { display: block; background: var(--accent-soft); color: var(--accent); }
@@ -453,7 +437,6 @@
   </div>
 
   <section>
-    <p class="cmd"><span>$</span> cat experience.md</p>
     <div class="section-head"><span class="n">01</span><h2>Experience</h2></div>
 
     <div class="job">
@@ -522,7 +505,6 @@
   </section>
 
   <section>
-    <p class="cmd"><span>$</span> cat education.md</p>
     <div class="section-head"><span class="n">02</span><h2>Education</h2></div>
  
     <div class="job">
@@ -535,14 +517,13 @@
   </section>
 
   <section>
-    <p class="cmd"><span>$</span> ls ~/projects</p>
     <div class="section-head"><span class="n">03</span><h2>Projects</h2></div>
 
     <div class="project">
       <div class="project-head">
         <a href="https://github.com/liamkeane/congressional-analysis-pipeline" target="_blank" rel="noopener">Congressional Analytics Pipeline <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:-1px"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
         <span class="badges">
-          <span class="status">running</span>
+          <span class="status">Ongoing</span>
           <span class="stack">AWS S3 · dbt · Airflow · Python</span>
         </span>
       </div>
@@ -569,7 +550,7 @@
       <div class="project-head">
         <span class="title">Vintage Sewing Machine Restoration</span>
         <span class="badges">
-          <span class="status">running</span>
+          <span class="status">Ongoing</span>
           <span class="stack">Just for fun</span>
         </span>
       </div>
@@ -579,7 +560,6 @@
   </section>
 
   <section>
-    <p class="cmd"><span>$</span> cat skills.txt</p>
     <div class="section-head"><span class="n">04</span><h2>Skills</h2></div>
 
     <div class="skill-row">
@@ -597,7 +577,6 @@
   </section>
 
   <section>
-    <p class="cmd"><span>$</span> ls ~/certs</p>
     <div class="section-head"><span class="n">05</span><h2>Certifications</h2></div>
 
     <div class="skill-row">
@@ -615,13 +594,11 @@
   </section>
 
   <section>
-    <p class="cmd"><span>$</span> cat interests.txt</p>
     <div class="section-head"><span class="n">06</span><h2>Interests</h2></div>
     <p class="body">Literature, alt-rock, tinkering, coffee, nordic skiing, video games, crosswords, learning to sew</p>
   </section>
 
   <section id="contact">
-    <p class="cmd"><span>$</span> mail liam</p>
     <div class="section-head"><span class="n">07</span><h2>Get in Touch</h2></div>
     <p class="body">Questions, opportunities, or just want to say hi? Send me a note and I'll get back to you.</p>
 
@@ -657,7 +634,7 @@
     e.preventDefault();
     const button = this.querySelector('button');
     const msg = document.getElementById('formMessage');
-    button.textContent = 'sending…';
+    button.textContent = 'Sending…';
     button.disabled = true;
     msg.className = 'form-message';
 
@@ -668,11 +645,11 @@
         headers: { Accept: 'application/json' }
       });
       if (!res.ok) throw new Error();
-      msg.textContent = '250 OK: message queued. Thanks, I’ll be in touch!';
+      msg.textContent = '✓ Message sent — thanks!';
       msg.className = 'form-message success';
       this.reset();
     } catch {
-      msg.textContent = 'mail: send failed. Try emailing me directly instead.';
+      msg.textContent = 'Something went wrong. Try emailing me directly instead.';
       msg.className = 'form-message error';
     }
     button.textContent = 'Send message';
