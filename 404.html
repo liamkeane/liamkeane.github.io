@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Not found · Liam Keane</title>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAFAF9;
+    --ink: #1B1D1F;
+    --ink-soft: #565B61;
+    --ink-faint: #8A8F94;
+    --accent: #1F5D4E;
+    --mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--mono);
+    font-size: 14px;
+    line-height: 1.8;
+    padding: 1.5rem;
+  }
+
+  .term { max-width: 640px; width: 100%; }
+
+  p { margin: 0; overflow-wrap: anywhere; }
+
+  .prompt { color: var(--accent); }
+  .err { color: var(--ink-soft); margin-bottom: 1rem; }
+
+  a { color: var(--ink); text-decoration-color: var(--ink-faint); text-underline-offset: 3px; }
+  a:hover { color: var(--accent); }
+
+  .cursor {
+    display: inline-block;
+    width: 8px;
+    height: 15px;
+    background: var(--accent);
+    margin-left: 4px;
+    vertical-align: -2px;
+    animation: blink 2s step-end infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="term">
+  <p><span class="prompt">$</span> cd <span id="path">/this-page</span></p>
+  <p class="err">bash: cd: <span id="path-err">/this-page</span>: No such file or directory</p>
+  <p><span class="prompt">$</span> <a href="/">cd ~</a><span class="cursor"></span></p>
+</div>
+<script>
+  let path = location.pathname;
+  try { path = decodeURIComponent(path); } catch {}
+  document.getElementById('path').textContent = path;
+  document.getElementById('path-err').textContent = path;
+</script>
+</body>
+</html>
